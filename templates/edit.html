@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+        <h2 style="text-align:center;">Edit User</h2>
+        <form action="{% url 'edit' user.id %}" method = "post">
+            {% csrf_token %}
+            <div class="form-group">
+                Name:
+                <input type="text" class="form-control" name="name" value="{{user.name}}">
+            </div>
+            <div class="form-group">
+                Email:
+                <input type="email" class="form-control" name ="email" value="{{user.email}}">
+            </div>
+            <div class="form-group">
+                Country:
+                <input type="text" class = "form-control" name = "country"value="{{user.country}}">
+            </div>
+            <button class="btn btn-primary">submit</button>
+        </form>      
+{% endblock %}

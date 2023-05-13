@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block content %}
+<h2 style="text-align:center;">List of Users</h2>
+<table class="table-bordered" style="text-align: center; width:100%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.country}}</td>
+        <td><a href="{% url 'edit' user.id %}">Edit</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'remove' user.id %}">Remove</a></td>
+        <td></td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="5"><a href="/">Add new user</a></td>
+    </tr>
+</table>
+{% endblock %}
